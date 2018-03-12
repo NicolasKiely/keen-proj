@@ -1,0 +1,21 @@
+{% extends 'csvmanager/base.html' %}
+
+{% block html_body %}
+  <h2>Upload File</h2>
+  <form enctype="multipart/form-data" method="post"
+      class="form-horizontal"
+      action="{% url 'csvmanager:post_upload' %}"
+  >
+    {% csrf_token %}
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Upload File</label>
+      <div class="col-sm-8">
+        <input type="file" name="file"> <br />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <a href="{% url 'csvmanager:document' %}">View Document</a>
+{% endblock %}

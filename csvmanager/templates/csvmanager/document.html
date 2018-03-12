@@ -1,0 +1,26 @@
+{% extends 'csvmanager/base.html' %}
+
+{% block html_head %}
+
+{% endblock %}
+
+
+{% block html_body %}
+  <h2>Data</h2>
+  <table class="table table-striped">
+    <tr>
+      {% for col in header %}
+      <th>{{ col }}</th>
+      {% endfor %}
+    </tr>
+    {% for record in records %}
+    <tr>
+      {% for field in record %}
+      <td>{{ field }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="/">Back</a>
+{% endblock %}
