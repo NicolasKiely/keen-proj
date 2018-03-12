@@ -24,7 +24,7 @@ def document(request):
     ''' View document '''
     data = {}
     with open(DATA_FILE_NAME, 'rb') as fh_in:
-        records = [x.split(',') for x in fh_in.read().split('\n')]
+        records = [x.split(',') for x in fh_in.read().split('\n') if x]
         data['header'] = records[0]
         data['records'] = records[1:]
     return render(request, 'csvmanager/document.html', data)
